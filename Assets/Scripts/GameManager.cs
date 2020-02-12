@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-	void Start () {
+    public GameObject m_bola;
+    public Transform SpawnBola;
+
+    void Start () {
 		
 	}
 	
@@ -12,7 +15,12 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
-    
+    public void CrearBola(GameObject l_bola)
+    {
+        Instantiate(l_bola, SpawnBola.position, l_bola.transform.rotation);
+
+
+    }
 
 
 }
