@@ -13,10 +13,19 @@ public class Bola : MonoBehaviour {
         
 		
 	}
-	
-	void Update () {
 
-        this.transform.position += Vector3.up * Time.deltaTime * m_Speed;
+    void Update() {
+
+
+        if (Input.GetAxis("Vertical") > -4 && this.transform.position.y < 15.605f)
+        {
+            this.transform.position +=  this.transform.up * Time.deltaTime * m_Speed;
+        }
+
+        
+        
+            
+        
 
     }
 }

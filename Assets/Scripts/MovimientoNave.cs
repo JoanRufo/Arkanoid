@@ -11,6 +11,7 @@ public class MovimientoNave : MonoBehaviour {
     public float CDMax_bola;
     public GameObject m_bola;
     public Transform SpawnBola;
+    public GameObject currentBola;
 
 
 
@@ -45,12 +46,13 @@ public class MovimientoNave : MonoBehaviour {
         }
 
 
-        if (Input.GetKey(KeyCode.Space) && currentCD_bola >= CDMax_bola)
+
+
+        if (Input.GetKey(KeyCode.Space) && currentBola.GetComponent<Bola>().m_Speed == 0)
         {
-            CrearBola(m_bola);
-            currentCD_bola = 0;
-
-
+            currentBola.GetComponent<Bola>().m_Speed = 5;
+          
+            currentBola.transform.SetParent(null);
         }
 
 

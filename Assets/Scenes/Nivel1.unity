@@ -333,6 +333,36 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 223851560751519986, guid: 4e0c6d40fcc24454ba64edf3de3000e0,
+        type: 2}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224315891505921236, guid: 4e0c6d40fcc24454ba64edf3de3000e0,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224315891505921236, guid: 4e0c6d40fcc24454ba64edf3de3000e0,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224315891505921236, guid: 4e0c6d40fcc24454ba64edf3de3000e0,
+        type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 223851560751519986, guid: 4e0c6d40fcc24454ba64edf3de3000e0,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1340336922}
+    - target: {fileID: 223851560751519986, guid: 4e0c6d40fcc24454ba64edf3de3000e0,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e0c6d40fcc24454ba64edf3de3000e0, type: 2}
   m_IsPrefabAsset: 0
