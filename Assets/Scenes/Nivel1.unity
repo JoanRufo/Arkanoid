@@ -162,7 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c50b5a8652d86469f047f25d2f5326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Speed: 5
+  m_Speed: 0
+  m_Nave: {fileID: 2123222255}
 --- !u!1001 &225799060
 Prefab:
   m_ObjectHideFlags: 0
@@ -452,11 +453,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4206674024449460, guid: 3b66eda5e65045c478080d103698be47, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.25
+      value: -0.40494484
       objectReference: {fileID: 0}
     - target: {fileID: 4206674024449460, guid: 3b66eda5e65045c478080d103698be47, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.33
+      value: 1.5076578
       objectReference: {fileID: 0}
     - target: {fileID: 4206674024449460, guid: 3b66eda5e65045c478080d103698be47, type: 2}
       propertyPath: m_LocalPosition.z
@@ -644,9 +645,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a41d988f7274fa44b0e9d068ca75d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Speed: 10
-  m_Nave: {fileID: 0}
+  m_Speed: 7
+  m_Nave: {fileID: 2123222255}
   currentCD_bola: 0
-  CDMax_bola: 0
-  m_bola: {fileID: 0}
-  SpawnBola: {fileID: 0}
+  CDMax_bola: 0.3
+  m_bola: {fileID: 134896259}
+  SpawnBola: {fileID: 41335813}
+  currentBola: {fileID: 134896259}
