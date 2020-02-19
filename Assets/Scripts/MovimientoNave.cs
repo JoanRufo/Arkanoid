@@ -12,7 +12,7 @@ public class MovimientoNave : MonoBehaviour {
     public GameObject m_bola;
     public Transform SpawnBola;
     public GameObject currentBola;
-    public GameObject aaaaa;
+    
 
 
 
