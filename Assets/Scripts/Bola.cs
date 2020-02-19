@@ -17,10 +17,10 @@ public class Bola : MonoBehaviour {
     void Update() {
 
 
-        if (Input.GetAxis("Vertical") > -4 && this.transform.position.y < 15.605f)
-        {
+        
+        
             this.transform.position +=  this.transform.up * Time.deltaTime * m_Speed;
-        }
+        
 
         
         
