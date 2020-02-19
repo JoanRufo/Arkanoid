@@ -12,7 +12,7 @@ public class Bola : MonoBehaviour {
 
     void Start () {
         m_GameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        VectorDireccion = this.transform.up+ this.transform.right;
+        VectorDireccion = this.transform.up;
 
 	}
 
@@ -57,17 +57,29 @@ public class Bola : MonoBehaviour {
                 {
                     VectorDireccion = -this.transform.up + -this.transform.right;
                 }
+                else if (VectorDireccion.x >= 0)
+                {
+                    VectorDireccion = -this.transform.up;
+                }
             }
              if (IntersectBounds(GetComponent<SpriteRenderer>(), m_Nave.GetComponent<SpriteRenderer>())==true)
             {
-                print("entro");
-                if (VectorDireccion.x > 0)
+                
+                
+                
+                   
+             if(this.transform.position.x > m_Nave.GetComponent<SpriteRenderer>().bounds.min.x && this.transform.position.x < m_Nave.GetComponent<SpriteRenderer>().bounds.min.x + 1)
+                    {
+                        VectorDireccion = this.transform.up + -this.transform.right;
+                    }
+               else if (this.transform.position.x < m_Nave.GetComponent<SpriteRenderer>().bounds.max.x && this.transform.position.x > m_Nave.GetComponent<SpriteRenderer>().bounds.max.x - 2)
                 {
                     VectorDireccion = this.transform.up + this.transform.right;
                 }
-                else if (VectorDireccion.x < 0)
+                
+               else 
                 {
-                    VectorDireccion = this.transform.up + -this.transform.right;
+                    VectorDireccion = this.transform.up;
                 }
             }
            
