@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bricks : MonoBehaviour {
+public class Bricks : MonoBehaviour
+{
 
     private GameManager m_GameManager;
     Vector3 VectorDireccion;
@@ -11,17 +12,20 @@ public class Bricks : MonoBehaviour {
 
 
 
-    void Start () {
+    void Start()
+    {
         m_GameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        
+
 
     }
-	
-	
-	void Update () {
 
-       
-            if (IntersectBounds(GetComponent<SpriteRenderer>(), m_Brick.GetComponent<SpriteRenderer>()) == true)
+
+    void Update()
+    {
+
+        
+                   
+            if (IntersectBounds(GetComponent<SpriteRenderer>(), m_Brick.GetComponent<SpriteRenderer>()) == true) { 
             {
 
 
@@ -40,20 +44,18 @@ public class Bricks : MonoBehaviour {
                 {
                     VectorDireccion = this.transform.up;
                 }
+            
+
             }
-
-        
-
+    }
 
 
         this.transform.position += VectorDireccion * Time.deltaTime * m_Speed;
-
-
-
-
-
     }
-    public bool IntersectBounds(SpriteRenderer l_Ball, SpriteRenderer l_Brick)
+
+
+
+    public bool IntersectBounds(SpriteRenderer l_Ball, SpriteRenderer l_Brick) 
     {
         return l_Ball.bounds.max.y > l_Brick.bounds.min.y
             && l_Ball.bounds.min.y < l_Brick.bounds.max.y
@@ -61,6 +63,10 @@ public class Bricks : MonoBehaviour {
             && l_Ball.bounds.min.x < l_Brick.bounds.max.x;
 
     }
+
 }
+
+
+
 
 
