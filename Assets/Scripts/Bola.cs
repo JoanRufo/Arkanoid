@@ -6,7 +6,7 @@ public class Bola : MonoBehaviour {
 
     public float m_Speed;
     private GameManager m_GameManager;
-    Vector3 VectorDireccion;
+    [HideInInspector] public Vector3 VectorDireccion;
     public GameObject m_Nave;
 
 

@@ -9,6 +9,7 @@ public class Bricks : MonoBehaviour
     Vector3 VectorDireccion;
     public GameObject m_Brick;
     public float m_Speed;
+    public GameObject m_Bola;
 
 
 
@@ -23,39 +24,67 @@ public class Bricks : MonoBehaviour
     void Update()
     {
 
-        
-                   
-            if (IntersectBounds(GetComponent<SpriteRenderer>(), m_Brick.GetComponent<SpriteRenderer>()) == true) { 
+
+
+        if (IntersectBounds(m_Bola.GetComponent<SpriteRenderer>(), GetComponent<SpriteRenderer>()) == true)
+        {
+
+
+
+            if (m_Bola.transform.position.x < m_Brick.GetComponent<SpriteRenderer>().bounds.min.x)//CHOCA IZQUIERDA
             {
-
-
-
-
-                if (this.transform.position.x > m_Brick.GetComponent<SpriteRenderer>().bounds.min.x && this.transform.position.x < m_Brick.GetComponent<SpriteRenderer>().bounds.min.x + 1)
+                if (m_Bola.GetComponent<Bola>().VectorDireccion.y > 0)//hacia arriba
                 {
-                    VectorDireccion = this.transform.up + -this.transform.right;
+                    m_Bola.GetComponent<Bola>().VectorDireccion = this.transform.up + -this.transform.right;
                 }
-                else if (this.transform.position.x < m_Brick.GetComponent<SpriteRenderer>().bounds.max.x && this.transform.position.x > m_Brick.GetComponent<SpriteRenderer>().bounds.max.x - 2)
+                else //hacia abajo
                 {
-                    VectorDireccion = this.transform.up + this.transform.right;
+                    m_Bola.GetComponent<Bola>().VectorDireccion = -this.transform.up + -this.transform.right;
                 }
-
-                else
-                {
-                    VectorDireccion = this.transform.up;
-                }
-            
 
             }
-    }
+            else if (this.transform.position.x > m_Brick.GetComponent<SpriteRenderer>().bounds.max.x)//CHOCA DERECHA
+            {
+                if (m_Bola.GetComponent<Bola>().VectorDireccion.y > 0) //hacia arriba
+                {
+                    m_Bola.GetComponent<Bola>().VectorDireccion = this.transform.up + this.transform.right;
+                }
+                else //hacia abajo
+                {
+                    m_Bola.GetComponent<Bola>().VectorDireccion = -this.transform.up + this.transform.right;
+                }
+            }
+            else if (this.transform.position.y < m_Brick.GetComponent<SpriteRenderer>().bounds.min.y) //CHOCA ABAJO
+            {
+                if (m_Bola.GetComponent<Bola>().VectorDireccion.x > 0) //hacia la derecha
+                {
+                    m_Bola.GetComponent<Bola>().VectorDireccion = -this.transform.up + this.transform.right;
+                }
+                else //hacia la izquierda
+                {
+                    m_Bola.GetComponent<Bola>().VectorDireccion = -this.transform.up + -this.transform.right;
+                }
+            }
+            else if (this.transform.position.y > m_Brick.GetComponent<SpriteRenderer>().bounds.min.y) //CHOCA ARRIBA
+            {
+                if (m_Bola.GetComponent<Bola>().VectorDireccion.x > 0) //hacia la derecha
+                {
+                    m_Bola.GetComponent<Bola>().VectorDireccion = this.transform.up + this.transform.right;
+                }
+                else //hacia la izquierda
+                {
+                    m_Bola.GetComponent<Bola>().VectorDireccion = this.transform.up + -this.transform.right;
+                }
+            }
 
+        }
 
         this.transform.position += VectorDireccion * Time.deltaTime * m_Speed;
     }
 
 
 
-    public bool IntersectBounds(SpriteRenderer l_Ball, SpriteRenderer l_Brick) 
+    public bool IntersectBounds(SpriteRenderer l_Ball, SpriteRenderer l_Brick)
     {
         return l_Ball.bounds.max.y > l_Brick.bounds.min.y
             && l_Ball.bounds.min.y < l_Brick.bounds.max.y
