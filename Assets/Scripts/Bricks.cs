@@ -43,7 +43,7 @@ public class Bricks : MonoBehaviour
                 }
 
             }
-            else if (this.transform.position.x > m_Brick.GetComponent<SpriteRenderer>().bounds.max.x)//CHOCA DERECHA
+            else if (m_Bola.transform.position.x > m_Brick.GetComponent<SpriteRenderer>().bounds.max.x)//CHOCA DERECHA
             {
                 if (m_Bola.GetComponent<Bola>().VectorDireccion.y > 0) //hacia arriba
                 {
@@ -54,7 +54,7 @@ public class Bricks : MonoBehaviour
                     m_Bola.GetComponent<Bola>().VectorDireccion = -this.transform.up + this.transform.right;
                 }
             }
-            else if (this.transform.position.y < m_Brick.GetComponent<SpriteRenderer>().bounds.min.y) //CHOCA ABAJO
+            else if (m_Bola.transform.position.y < m_Brick.GetComponent<SpriteRenderer>().bounds.min.y) //CHOCA ABAJO
             {
                 if (m_Bola.GetComponent<Bola>().VectorDireccion.x > 0) //hacia la derecha
                 {
@@ -65,7 +65,7 @@ public class Bricks : MonoBehaviour
                     m_Bola.GetComponent<Bola>().VectorDireccion = -this.transform.up + -this.transform.right;
                 }
             }
-            else if (this.transform.position.y > m_Brick.GetComponent<SpriteRenderer>().bounds.min.y) //CHOCA ARRIBA
+            else if (m_Bola.transform.position.y > m_Brick.GetComponent<SpriteRenderer>().bounds.max.y) //CHOCA ARRIBA
             {
                 if (m_Bola.GetComponent<Bola>().VectorDireccion.x > 0) //hacia la derecha
                 {
@@ -77,7 +77,11 @@ public class Bricks : MonoBehaviour
                 }
             }
 
+
+
         }
+
+
 
         this.transform.position += VectorDireccion * Time.deltaTime * m_Speed;
     }
