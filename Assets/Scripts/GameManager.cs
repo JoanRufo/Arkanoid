@@ -11,11 +11,13 @@ public class GameManager : MonoBehaviour {
     public Transform SpawnBola;
     public Text m_textPuntuacion;
     public Text m_textVidas;
-    public bool playing = false;
-    float currentCD_Vidas;
-    public float CDMax_Vidas;
+    public bool playing = true;
     [HideInInspector] public int m_Puntuacion;
     [HideInInspector] public int m_Vidas = 5;
+    public GameObject m_GameOverPanel;
+    public GameObject m_MenuPrincipal;
+    public GameObject m_Victoria;
+    public int numero_bricks;
 
     void Start() {
 
@@ -25,19 +27,25 @@ public class GameManager : MonoBehaviour {
     {
         if (playing == true)
         {
-            if (currentCD_Vidas < CDMax_Vidas)
+            m_textPuntuacion.text = "Puntos: " + m_Puntuacion;
+            m_textVidas.text = "Vidas: " + m_Vidas;
+
+            if (m_Vidas <= 0)
             {
-                currentCD_Vidas += Time.deltaTime;
+                m_GameOverPanel.SetActive(true);
+
+            }
 
 
-                m_textPuntuacion.text = "Puntuación:" + m_Puntuacion;
-                m_textVidas.text = "Vidas:" + m_Vidas;
-            }
-            if (currentCD_Vidas >= CDMax_Vidas)
+            if (numero_bricks == 0)
             {
-                currentCD_Vidas = 0;
+                m_Victoria.SetActive(true);
+                
             }
+
         }
+
+
     }
 
         public void CrearBola(GameObject l_bola)
@@ -46,5 +54,27 @@ public class GameManager : MonoBehaviour {
 
 
         }
+
+
+
+        public void RestartGame()
+        {
+            SceneManager.LoadScene(0);
+        }
+
+        public void StartGame()
+        {
+            playing = true;
+
+            m_MenuPrincipal.SetActive(false);
+
+        }
+
+
+    public void EndLevel()
+    {
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+}
 

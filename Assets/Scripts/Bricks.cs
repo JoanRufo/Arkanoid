@@ -10,6 +10,10 @@ public class Bricks : MonoBehaviour
     public GameObject m_Brick;
     public float m_Speed;
     public GameObject m_Bola;
+    public int vida_brick = 3;
+    
+   
+
 
 
 
@@ -26,9 +30,11 @@ public class Bricks : MonoBehaviour
 
 
 
-        if (IntersectBounds(m_Bola.GetComponent<SpriteRenderer>(), GetComponent<SpriteRenderer>()) == true)
+        if (IntersectBounds(m_Bola.GetComponent<SpriteRenderer>(), GetComponent<SpriteRenderer>()) == true && m_Bola.GetComponent<Bola>().currentCD >= m_Bola.GetComponent<Bola>().CDMax)
         {
+            vida_brick--;
 
+            m_Bola.GetComponent<Bola>().currentCD = 0;
 
 
             if (m_Bola.transform.position.x < m_Brick.GetComponent<SpriteRenderer>().bounds.min.x)//CHOCA IZQUIERDA
@@ -77,6 +83,15 @@ public class Bricks : MonoBehaviour
                 }
             }
 
+            m_GameManager.m_Puntuacion += 10;
+
+            if (vida_brick == 0)
+            {
+                Destroy(this.gameObject);
+                m_GameManager.m_Puntuacion += 100;
+                m_GameManager.numero_bricks--;
+
+            }
 
 
         }
