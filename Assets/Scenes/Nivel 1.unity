@@ -926,6 +926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_bola: {fileID: 1713574534555406, guid: 3b66eda5e65045c478080d103698be47, type: 2}
+  m_Nave: {fileID: 1732363335}
   SpawnBola: {fileID: 52825737}
   m_textPuntuacion: {fileID: 69979649}
   m_textVidas: {fileID: 129492492}
@@ -935,7 +936,9 @@ MonoBehaviour:
   m_GameOverPanel: {fileID: 238176635}
   m_MenuPrincipal: {fileID: 837414860}
   m_Victoria: {fileID: 1307443847}
-  numero_bricks: 2
+  numero_bricks: 30
+  currentBola: {fileID: 92796784}
+  spawnBola: {fileID: 52825736}
 --- !u!4 &255694205
 Transform:
   m_ObjectHideFlags: 0
@@ -1174,7 +1177,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: CONTINUAR
 --- !u!222 &410524128
 CanvasRenderer:
   m_ObjectHideFlags: 0
