@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     public GameObject m_bola;
+    public GameObject m_Nave;
     public Transform SpawnBola;
     public Text m_textPuntuacion;
     public Text m_textVidas;
@@ -18,6 +19,10 @@ public class GameManager : MonoBehaviour {
     public GameObject m_MenuPrincipal;
     public GameObject m_Victoria;
     public int numero_bricks;
+    public GameObject currentBola;
+    public GameObject spawnBola;
+
+
 
     void Start() {
 
@@ -40,7 +45,12 @@ public class GameManager : MonoBehaviour {
             if (numero_bricks == 0)
             {
                 m_Victoria.SetActive(true);
-                
+                currentBola.GetComponent<Bola>().m_Speed = 0;
+                currentBola.transform.position = spawnBola.transform.position;
+                currentBola.transform.SetParent(m_Nave.transform);
+
+
+
             }
 
         }
@@ -68,7 +78,7 @@ public class GameManager : MonoBehaviour {
 
             m_MenuPrincipal.SetActive(false);
 
-        }
+    }
 
 
     public void EndLevel()

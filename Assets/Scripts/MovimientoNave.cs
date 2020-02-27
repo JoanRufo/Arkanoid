@@ -51,7 +51,8 @@ public class MovimientoNave : MonoBehaviour {
         if (Input.GetKey(KeyCode.Space) && currentBola.GetComponent<Bola>().m_Speed == 0)
         {
             currentBola.GetComponent<Bola>().m_Speed = 5;
-          
+            
+
             currentBola.transform.SetParent(null);
         }
 
