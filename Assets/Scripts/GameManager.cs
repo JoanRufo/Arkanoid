@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
     public Text m_textVidas;
     public bool playing = true;
     [HideInInspector] public int m_Puntuacion;
-    [HideInInspector] public int m_Vidas = 5;
+    [HideInInspector] public int m_Vidas = 3;
     public GameObject m_GameOverPanel;
     public GameObject m_MenuPrincipal;
     public GameObject m_Victoria;

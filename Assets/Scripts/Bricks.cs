@@ -11,8 +11,10 @@ public class Bricks : MonoBehaviour
     public float m_Speed;
     public GameObject m_Bola;
     public int vida_brick = 3;
-    
-   
+    public AudioSource sonido;
+    public AudioClip rebote_pelota;
+
+
 
 
 
@@ -35,6 +37,9 @@ public class Bricks : MonoBehaviour
             vida_brick--;
 
             m_Bola.GetComponent<Bola>().currentCD = 0;
+
+            sonido.clip = rebote_pelota;
+            sonido.Play();
 
 
             if (m_Bola.transform.position.x < m_Brick.GetComponent<SpriteRenderer>().bounds.min.x)//CHOCA IZQUIERDA

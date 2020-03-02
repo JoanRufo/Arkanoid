@@ -12,6 +12,8 @@ public class MovimientoNave : MonoBehaviour {
     public GameObject m_bola;
     public Transform SpawnBola;
     public GameObject currentBola;
+    public AudioSource sonido;
+    public AudioClip rebote_pelota;
 
 
 

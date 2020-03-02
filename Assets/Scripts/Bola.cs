@@ -12,6 +12,8 @@ public class Bola : MonoBehaviour
     public GameObject spawnBola;
     public float CDMax;
     [HideInInspector] public float currentCD = 0;
+    public AudioSource sonido;
+    public AudioClip rebote_pelota;
 
     void Start()
     {
@@ -79,7 +81,8 @@ public class Bola : MonoBehaviour
             }
             if (IntersectBounds(GetComponent<SpriteRenderer>(), m_Nave.GetComponent<SpriteRenderer>()) == true)
             {
-
+                sonido.clip = rebote_pelota;
+                sonido.Play();
 
                 if (this.transform.position.x > m_Nave.GetComponent<SpriteRenderer>().bounds.min.x && this.transform.position.x < m_Nave.GetComponent<SpriteRenderer>().bounds.min.x + 1)
                 {
